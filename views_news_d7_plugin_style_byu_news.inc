@@ -1,21 +1,21 @@
 <?php
 /**
  * @file
- * Contains the BYU card style plugin.
+ * Contains the BYU News Feed style plugin.
  */
 
 /**
- * Style plugin to render each item in a BYU card.
+ * Style plugin to render each item in a BYU News Feed.
  *
  * @ingroup views_style_plugins
  */
-class views_card_d7_plugin_style_byu_card extends views_plugin_style {
+class views_news_d7_plugin_style_byu_news extends views_plugin_style {
     /**
      * Set default options.
      */
     function option_definition() {
         $options = parent::option_definition();
-        $options['columns'] = array('default' => '3');
+        //$options['columns'] = array('default' => '1');
 
         return $options;
     }
@@ -27,9 +27,9 @@ class views_card_d7_plugin_style_byu_card extends views_plugin_style {
         parent::options_form($form, $form_state);
 
         // Flatten options to deal with the various hierarchy changes.
-        $options = views_card_d7_get_options($this->options);
+        $options = views_news_d7_get_options($this->options);
 
-        $form['columns'] = array(
+        /*$form['columns'] = array(
             '#type' => 'select',
             '#title' => t('Number of tiles in each row'),
             '#default_value' => $options['columns'],
@@ -74,6 +74,6 @@ class views_card_d7_plugin_style_byu_card extends views_plugin_style {
                 "small" => t('Small'),
                 "large" => t('Large'),
             ),
-        );
+        );*/
     }
 }

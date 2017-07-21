@@ -1,42 +1,42 @@
 <?php
 /**
  * @file
- * Provides a Views style plugin to display content in a byu card.
+ * Provides a Views style plugin to display content in a byu news feed.
  */
 
 /**
  * Implements hook_views_api().
  */
-function views_card_d7_views_api() {
+function views_news_d7_views_api() {
     return array('api' => '3.0');
 }
 
 /**
  * Set default options.
  */
-function views_card_d7_get_options($array) {
+function views_news_d7_get_options($array) {
     $options = array();
     foreach ($array as $key => $value) {
         if (!is_array($value)) {
             $options[$key] = $value;
         }
         else {
-            $options = array_merge($options, views_card_d7_get_options($value));
+            $options = array_merge($options, views_news_d7_get_options($value));
         }
     }
     return $options;
 }
 
 /**
- * Display a view as a byu card style.
+ * Display a view as a byu news feed style.
  */
-function template_preprocess_views_view_byu_card(&$vars) {
+function template_preprocess_views_view_byu_news(&$vars) {
 
-    drupal_add_js('//cdn.byu.edu/byu-card/latest/byu-card.min.js', 'external');
+    drupal_add_js('//cdn.byu.edu/byu-news-component/latest/byu-news-component.min.js', 'external');
 
     $view = $vars['view'];
-    $options = views_card_d7_get_options($view->style_plugin->options);
-    $columns  = $options['columns'];
+    $options = views_news_d7_get_options($view->style_plugin->options);
+    /*$columns  = $options['columns'];
     $alignment = (isset($options['alignment']) ? $options['alignment'] : 'center');
     $border = (isset($options['border']) ? $options['border'] : 'none');
 
@@ -52,5 +52,5 @@ function template_preprocess_views_view_byu_card(&$vars) {
         $vars['border_radius'] = $border_radius;
         foreach ($vars['rows'] as $i => $row) {
         }
-    }
+    }*/
 }

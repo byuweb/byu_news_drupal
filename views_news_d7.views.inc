@@ -7,14 +7,14 @@
 /**
  * Implements hook_views_plugins().
  */
-function views_card_d7_views_plugins() {
+function views_news_d7_views_plugins() {
   return array(
     'style' => array(
-      'byu_card' => array(
-        'title' => t('BYU Card'),
-        'help' => t('Display content in a BYU Card.'),
-        'handler' => 'views_card_d7_plugin_style_byu_card',
-        'theme' => 'views_view_byu_card',
+      'byu_news' => array(
+        'title' => t('BYU News'),
+        'help' => t('Display content in a BYU News Feed.'),
+        'handler' => 'views_news_d7_plugin_style_byu_news',
+        'theme' => 'views_view_byu_news',
         'uses row plugin' => TRUE,
         'uses row class' => FALSE,
         'uses options' => TRUE,
