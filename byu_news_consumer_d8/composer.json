@@ -1,0 +1,21 @@
+{
+  "name": "drupal/byu_news_consumer",
+  "description": "Integrates BYU news stories into your content.",
+  "type": "drupal-module",
+  "authors": [
+    {
+      "name": "Blake Morgan (blakemorgan)",
+      "homepage": "https://www.drupal.org/u/blakemorgan",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/byuweb/byu_news_consumer_d8/issues",
+    "source": "https://github.com/byuweb/byu_news_consumer_d8.git"
+  },
+  "license": "Apache-2.0",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/remote_stream_wrapper": "^1.0"
+  }
+}
