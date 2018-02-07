@@ -10,5 +10,7 @@
     "issues": "https://www.drupal.org/project/issues/byu_news",
     "source": "http://cgit.drupalcode.org/byu_news"
   },
-  "require": { }
+  "require": {
+    "drupal/remote_stream_wrapper": "^1.0"
+  }
 }
