@@ -222,7 +222,7 @@ class ByuNewsConsumerConfigForm extends ConfigFormBase {
     // Get collection and gallery data
     $config   = $this->config('byu_news_consumer.settings');
     $tagIds  = $config->get('tag_ids');
-    $fullUrl = 'https://news.byu.edu/api/Stories.json?categories=all&tags=' . $tagIds;
+    $fullUrl = 'https://news.byu.edu/api/Stories?_format=json&categories=all&tags=' . $tagIds;
     $curl    = curl_init($fullUrl);
     curl_setopt_array($curl, $this->options);
 
@@ -299,6 +299,18 @@ class ByuNewsConsumerConfigForm extends ConfigFormBase {
         'field_story_id' => $storyId,
         'field_story_link' => $storyUrl
       ]);
+       /**THIS CODE ADDS A DATE TO THE NODE*/
+               //get date from longer string
+               $dateOffset = 38;
+               $dateLength = 11;
+               $date = substr($storyModified, $dateOffset, $dateLength);
+               //get the date; format it as a timestamp
+               $format = "M-d-Y";
+               $date= DateTime::createFromFormat($format, $date);
+
+               //change time of the node's creation
+               $node->setCreatedTime(date_timestamp_get($date));
+       /**END ADDED CODE*/
       try {
         $node->save();
       } catch (Exception $e) {
